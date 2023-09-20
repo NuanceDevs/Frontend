@@ -6,6 +6,7 @@ import Navbar from "./components/navbar";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Portfolio", href: "/projects" },
+  { name: "Blog", href: "/blog" },
   { name: "About", href: "/about" },
   { name: "Login", href: "/contact" },
 ];
