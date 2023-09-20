@@ -1,20 +1,31 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import BlogContent from "../components/blogcontent";
-import "./BlogPage.css";
 import Image from "next/image";
-import { motion } from "framer-motion"; // Import motion from framer-motion
-import { FadeInText } from "../components/fadeintext"; // Import the FadeInText component
+import { motion } from "framer-motion";
+import { FadeInText } from "../components/fadeintext";
+import BlogModal from "../components/blogmodal";
+import "./BlogPage.css";
 
 const BlogPage: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedBlogId, setSelectedBlogId] = useState<number | null>(null);
+
+  const handleBlogClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="blog-page">
       <div className="header">
         <div className="image-box">
-          {/* Wrap the Image component with motion.div */}
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <Image
-              src="/nuanceelogo.svg" // Use a relative path for the image
+              src="/nuanceelogo.svg"
               width={400}
               height={400}
               alt="Image Alt Text"
@@ -26,32 +37,35 @@ const BlogPage: React.FC = () => {
             Welcome to my blog.
           </FadeInText>
           <FadeInText duration={5} delay={2}>
-            Here you can read everything Im doing. Donec finibus ante erat, vel
-            tristique ipsum efficitur eu. Praesent efficitur accumsan risus eu
-            malesuada. Fusce euismod auctor libero sed vulputate. Cras nunc
-            dolor, rhoncus non metus a, consequat tempor justo. Sed pulvinar
-            lorem sed luctus viverra.Praesent efficitur accumsan risus eu
-            malesuada. Fusce euismod auctor libero sed vulputate. Cras nunc
-            dolor, rhoncus non metus a, consequat tempor justo. Sed pulvinar
-            lorem sed luctus viverra.
+            Welcome to my Art Blog, where Im excited to share the latest
+            developments in my creative journey. Hailing from the Netherlands,
+            Im passionate about art and the pursuit of success. My dedication to
+            honing my craft is unwavering. Join me as I explore new artistic
+            horizons, experiment with various mediums, and share the stories
+            behind my creations.
           </FadeInText>
         </div>
       </div>
-      <div className="blog-content">
+      <div className="blog-content" onClick={handleBlogClick}>
         <BlogContent
+          id={1} // Assign a unique id for the first blog
           title="New art"
-          summary="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet quam dolor. Curabitur in eleifend magna. Donec pretium odio massa, et molestie lectus iaculis eu. Donec finibus ante erat, vel tristique ipsum efficitur eu. Praesent efficitur accumsan risus eu malesuada. Fusce euismod auctor libero sed vulputate. Cras nunc dolor, rhoncus non metus a, consequat tempor justo. Sed pulvinar lorem sed luctus viverra."
+          summary="Lorem ipsum dolor sit amet..."
           author="Noah"
           publishingDate="20 sep 2023"
-        ></BlogContent>
+        />
 
         <BlogContent
-          title="New art"
-          summary="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet quam dolor. Curabitur in eleifend magna. Donec pretium odio massa, et molestie lectus iaculis eu. Donec finibus ante erat, vel tristique ipsum efficitur eu. Praesent efficitur accumsan risus eu malesuada. Fusce euismod auctor libero sed vulputate. Cras nunc dolor, rhoncus non metus a, consequat tempor justo. Sed pulvinar lorem sed luctus viverra."
+          id={2} // Assign a unique id for the second blog
+          title="Another new art"
+          summary="Lorem ipsum dolor sit amet..."
           author="Noah"
           publishingDate="20 sep 2023"
-        ></BlogContent>
+        />
       </div>
+
+      {/* Render the modal if isModalOpen is true */}
+      {isModalOpen && <BlogModal onClose={closeModal} />}
     </div>
   );
 };

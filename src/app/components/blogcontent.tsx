@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 interface BlogContentProps {
+  id: number; // Add an id prop
   title: string;
   summary: string;
   author: string;
