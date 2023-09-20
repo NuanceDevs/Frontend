@@ -1,6 +1,6 @@
-// components/BlogContent.tsx
-
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 interface BlogContentProps {
   title: string;
@@ -22,12 +22,16 @@ const BlogContent: React.FC<BlogContentProps> = ({
   };
 
   return (
-    <div style={containerStyle}>
+    <motion.div
+      whileTap={{ scale: 0.9 }}
+      whileHover={{ scale: 1.01 }}
+      style={containerStyle}
+    >
       <p>{title}</p>
       <p>Date of Publishing: {publishingDate}</p>
       <p>Author: {author}</p>
       <p>{summary}</p>
-    </div>
+    </motion.div>
   );
 };
 
