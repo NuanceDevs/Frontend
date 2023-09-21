@@ -25,6 +25,10 @@
 .blog-content {
   display: flex;
   flex-direction: column;
+  padding-left: 80px;
+  padding-right: 80px;
+  margin-left: auto;
+  margin-right: auto;
   gap: 20px; /* Adjust the gap value to control the spacing */
 }
 

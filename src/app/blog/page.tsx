@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import BlogContent from "../components/blogcontent";
+import Content from "../components/blog/Content";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FadeInText } from "../components/fadeintext";
-import BlogModal from "../components/blogmodal";
+import Modal from "../components/blog/BlogModal";
 import "./BlogPage.css";
 
 const BlogPage: React.FC = () => {
@@ -22,7 +22,7 @@ const BlogPage: React.FC = () => {
     <div className="blog-page">
       <div className="header">
         <div className="image-box">
-          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <motion.div whileHover={{ scale: 1.05 }}>
             <Image
               src="/nuanceelogo.svg"
               width={400}
@@ -46,16 +46,16 @@ const BlogPage: React.FC = () => {
         </div>
       </div>
       <div className="blog-content" onClick={handleBlogClick}>
-        <BlogContent
-          id={1} // Assign a unique id for the first blog
+        <Content
+          id={1}
           title="New art"
           summary="Lorem ipsum dolor sit amet..."
           author="Noah"
           publishingDate="20 sep 2023"
         />
 
-        <BlogContent
-          id={2} // Assign a unique id for the second blog
+        <Content
+          id={2}
           title="Another new art"
           summary="Lorem ipsum dolor sit amet..."
           author="Noah"
@@ -64,7 +64,7 @@ const BlogPage: React.FC = () => {
       </div>
 
       {/* Render the modal if isModalOpen is true */}
-      {isModalOpen && <BlogModal onClose={closeModal} />}
+      {isModalOpen && <Modal onClose={closeModal} />}
     </div>
   );
 };

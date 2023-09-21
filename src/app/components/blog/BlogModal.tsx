@@ -6,7 +6,7 @@ interface BlogModalProps {
   onClose: () => void;
 }
 
-const BlogModal: React.FC<BlogModalProps> = ({ onClose }) => {
+const Modal: React.FC<BlogModalProps> = ({ onClose }) => {
   return (
     <div className="blog-modal">
       <div className="modal-content">
@@ -19,4 +19,4 @@ const BlogModal: React.FC<BlogModalProps> = ({ onClose }) => {
   );
 };
 
-export default BlogModal;
+export default Modal;

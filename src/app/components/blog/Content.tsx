@@ -10,7 +10,7 @@ interface BlogContentProps {
   publishingDate: string;
 }
 
-const BlogContent: React.FC<BlogContentProps> = ({
+const Content: React.FC<BlogContentProps> = ({
   title,
   summary,
   author,
@@ -36,4 +36,4 @@ const BlogContent: React.FC<BlogContentProps> = ({
   );
 };
 
-export default BlogContent;
+export default Content;
