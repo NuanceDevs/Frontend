@@ -1,5 +1,5 @@
 import React from "react";
-import "../blog/BlogModal.css"; // Create a separate CSS file for your modal styles
+import "../../blog/BlogModal.css"; // Create a separate CSS file for your modal styles
 import { motion } from "framer-motion"; // You might want to use motion from framer-motion
 
 interface BlogModalProps {
