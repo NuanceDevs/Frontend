@@ -9,7 +9,6 @@ import "./BlogPage.css";
 
 const BlogPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedBlogId, setSelectedBlogId] = useState<number | null>(null);
 
   const handleBlogClick = () => {
     setIsModalOpen(true);
@@ -28,7 +27,7 @@ const BlogPage: React.FC = () => {
               src="/nuanceelogo.svg"
               width={400}
               height={400}
-              alt="Image Alt Text"
+              alt="Nuancee logo"
             />
           </motion.div>
         </div>
