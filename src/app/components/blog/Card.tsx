@@ -7,10 +7,12 @@ import { Button } from "./Button";
 
 export const Card = ({
   id,
+  publishedOn,
   imagePath,
   text,
 }: {
   id: number;
+  publishedOn: string;
   imagePath: string;
   text: string;
 }) => {
@@ -23,7 +25,10 @@ export const Card = ({
       transition={{ duration: 1 }}
     >
       <CardImage imagePath={imagePath}></CardImage>
+      <a className="gp-1 text-sm">Published on: {publishedOn}</a>
+
       <Title>My first blog</Title>
+
       <Summary>{text}</Summary>
       <Button id={id}></Button>
     </motion.div>
