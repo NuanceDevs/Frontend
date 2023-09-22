@@ -1,9 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import BlogModal from "./BlogModal";
 
-export const Button = () => {
+interface ButtonProps {
+  id: number;
+}
+
+export const Button = ({ id }: { id: number }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const buttonVariants = {
+    initial: {
+      backgroundColor: "black",
+      color: "white",
+    },
+    hover: {
+      backgroundColor: "white",
+      color: "black",
+    },
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <div>
-      <button>Read more</button>
-    </div>
+    <>
+      <motion.div
+        whileHover="hover"
+        initial="initial"
+        variants={buttonVariants}
+        className="rounded-md p-2"
+        onClick={openModal}
+      >
+        <button>Read more</button>
+      </motion.div>
+
+      {isModalOpen && <BlogModal id={id} onClose={closeModal}></BlogModal>}
+    </>
   );
 };

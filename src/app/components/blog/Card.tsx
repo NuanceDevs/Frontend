@@ -6,9 +6,11 @@ import { motion } from "framer-motion";
 import { Button } from "./Button";
 
 export const Card = ({
+  id,
   imagePath,
   text,
 }: {
+  id: number;
   imagePath: string;
   text: string;
 }) => {
@@ -23,7 +25,7 @@ export const Card = ({
       <CardImage imagePath={imagePath}></CardImage>
       <Title>My first blog</Title>
       <Summary>{text}</Summary>
-      <Button></Button>
+      <Button id={id}></Button>
     </motion.div>
   );
 };
