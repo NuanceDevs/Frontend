@@ -29,7 +29,7 @@ export const Title = ({ children }: TitleProps) => {
 
   return (
     <div
-      className="p-4 border border-white rounded-md"
+      className="rounded-md"
       style={{
         display: "flex",
         justifyContent: "center",

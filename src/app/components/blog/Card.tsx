@@ -9,12 +9,12 @@ export const Card = ({
   id,
   publishedOn,
   imagePath,
-  text,
+  summary: text,
 }: {
   id: number;
   publishedOn: string;
   imagePath: string;
-  text: string;
+  summary: string;
 }) => {
   return (
     <motion.div

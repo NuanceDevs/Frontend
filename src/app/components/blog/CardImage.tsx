@@ -7,7 +7,7 @@ interface CardImageProps {
 
 export const CardImage: React.FC<CardImageProps> = ({ imagePath }) => {
   return (
-    <div className="p-4 border border-white rounded-md">
+    <div className="rounded-md">
       <Image src={imagePath} alt="card image" width={500} height={500} />
     </div>
   );
