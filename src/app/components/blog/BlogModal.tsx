@@ -43,7 +43,7 @@ const Modal: React.FC<BlogModalProps> = ({ onClose, id }) => {
         <Title>My first blog</Title>
         <p className="text-sm">Published on: 2021-01-01</p>
 
-        <p className="border border-black">
+        <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
           vehicula ipsum eros, sit amet pretium justo maximus eu. Donec et
           malesuada nibh, quis mattis ligula. Nulla id eleifend ligula. Orci
