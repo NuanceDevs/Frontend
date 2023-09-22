@@ -18,15 +18,11 @@ export const Card = ({
 }) => {
   return (
     <motion.div
-      className="border border-white rounded-md mb-4 p-4 space-y-4"
+      className="border border-white rounded-md mb-4 p-4 space-y-4" // Utilize Tailwind classes
       style={{ minHeight: "250px" }}
       initial={{ opacity: 0, scale: 1 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1 }}
-      whileHover={{
-        scale: 1.02,
-        transition: { duration: 0.3 },
-      }}
     >
       <CardImage imagePath={imagePath}></CardImage>
       <a className="gp-1 text-sm">Published on: {publishedOn}</a>
