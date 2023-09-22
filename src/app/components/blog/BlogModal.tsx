@@ -32,7 +32,7 @@ const Modal: React.FC<BlogModalProps> = ({ onClose, id }) => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  });
 
   return (
     <div
