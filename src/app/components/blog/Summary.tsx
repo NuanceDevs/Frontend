@@ -12,10 +12,11 @@ export const Summary = ({ children }: SummaryProps) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        height: "100%",
+        height: "200px", // Set a fixed height here, adjust it as needed
+        overflow: "hidden", // Hide overflow content
       }}
     >
-      <div>{children}</div>
+      <div style={{ flex: 1, overflowY: "auto" }}>{children}</div>
     </div>
   );
 };
