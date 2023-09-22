@@ -1,11 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import Content from "../components/blog/Content";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FadeInText } from "../components/fadeintext";
 import Modal from "../components/blog/BlogModal";
 import "./BlogPage.css";
+import { Card } from "../components/blog/Card";
+import CardContainer from "../components/blog/Cardcontainer";
 
 const BlogPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,46 +23,32 @@ const BlogPage: React.FC = () => {
   return (
     <div className="blog-page">
       <div className="header">
-        <div className="image-box">
-          <motion.div whileHover={{ scale: 1.05 }}>
-            <Image
-              src="/nuanceelogo.svg"
-              width={400}
-              height={400}
-              alt="Nuancee logo"
-            />
-          </motion.div>
-        </div>
-        <div className="welcome-box">
-          <FadeInText duration={5} delay={0}>
-            Welcome to my blog.
-          </FadeInText>
-          <FadeInText duration={5} delay={2}>
-            Welcome to my Art Blog, where Im excited to share the latest
-            developments in my creative journey. Hailing from the Netherlands,
-            Im passionate about art and the pursuit of success. My dedication to
-            honing my craft is unwavering. Join me as I explore new artistic
-            horizons, experiment with various mediums, and share the stories
-            behind my creations.
-          </FadeInText>
-        </div>
-      </div>
-      <div className="blog-content" onClick={handleBlogClick}>
-        <Content
-          id={1}
-          title="New art"
-          summary="Lorem ipsum dolor sit amet..."
-          author="Noah"
-          publishingDate="20 sep 2023"
-        />
-
-        <Content
-          id={2}
-          title="Another new art"
-          summary="Lorem ipsum dolor sit amet..."
-          author="Noah"
-          publishingDate="20 sep 2023"
-        />
+        <CardContainer>
+          <Card
+            imagePath="/nuanceelogo.svg"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis viverra pretium turpis. Curabitur nec congue libero. Nunc bibendum in orci sed maximus. Mauris aliquet vitae diam et luctus. Quisque augue turpis, aliquam nec mattis et, tempus ut urna. Vivamus sed orci eget lorem lacinia fringilla. Vivamus ex nulla, viverra et magna ac, rhoncus venenatis lacus. Donec eros risus, fermentum non molestie eget, vulputate at justo. Ut et dui bibendum, "
+          />
+          <Card
+            imagePath="/nuanceelogo.svg"
+            text=" Vivamus sed orci eget lorem lacinia fringilla. Vivamus ex nulla, viverra et magna ac, rhoncus venenatis lacus. Donec eros risus, fermentum non molestie eget, vulputate at justo. Ut et dui bibendum, "
+          />
+          <Card
+            imagePath="/nuanceelogo.svg"
+            text=" Vivamus sed orci eget lorem lacinia fringilla. Vivamus ex nulla, viverra et magna ac, rhoncus venenatis lacus. Donec eros risus, fermentum non molestie eget, vulputate at justo. Ut et dui bibendum, "
+          />
+          <Card
+            imagePath="/nuanceelogo.svg"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis viverra pretium turpis. Curabitur nec congue libero. Nunc bibendum in orci sed maximus. Mauris aliquet vitae diam et luctus. Quisque augue turpis, aliquam nec mattis et, tempus ut urna. Vivamus sed orci eget lorem lacinia fringilla. Vivamus ex nulla, viverra et magna ac, rhoncus venenatis lacus. Donec eros risus, fermentum non molestie eget, vulputate at justo. Ut et dui bibendum, "
+          />
+          <Card
+            imagePath="/nuanceelogo.svg"
+            text=" Vivamus sed orci eget lorem lacinia fringilla. Vivamus ex nulla, viverra et magna ac, rhoncus venenatis lacus. Donec eros risus, fermentum non molestie eget, vulputate at justo. Ut et dui bibendum, "
+          />
+          <Card
+            imagePath="/nuanceelogo.svg"
+            text=" Vivamus sed orci eget lorem lacinia fringilla. Vivamus ex nulla, viverra et magna ac, rhoncus venenatis lacus. Donec eros risus, fermentum non molestie eget, vulputate at justo. Ut et dui bibendum, "
+          />
+        </CardContainer>
       </div>
 
       {/* Render the modal if isModalOpen is true */}
