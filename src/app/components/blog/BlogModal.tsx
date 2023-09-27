@@ -7,7 +7,7 @@ interface BlogModalProps {
   onClose: () => void;
 }
 
-const Modal: React.FC<BlogModalProps> = ({ onClose, id }) => {
+export const BlogModal: React.FC<BlogModalProps> = ({ onClose, id }) => {
   const closeModal = () => {
     onClose();
   };
@@ -103,4 +103,4 @@ const Modal: React.FC<BlogModalProps> = ({ onClose, id }) => {
   );
 };
 
-export default Modal;
+export default BlogModal;

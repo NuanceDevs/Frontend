@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import BlogModal from "./BlogModal";
+import { BlogModal } from "./BlogModal";
 
 interface ButtonProps {
   id: number;

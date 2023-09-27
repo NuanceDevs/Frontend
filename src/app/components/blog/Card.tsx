@@ -7,13 +7,11 @@ import { Button } from "./Button";
 
 export const Card = ({
   id,
-  publishedOn,
-  imagePath,
+  title,
   summary: text,
 }: {
   id: number;
-  publishedOn: string;
-  imagePath: string;
+  title: string;
   summary: string;
 }) => {
   return (
@@ -24,10 +22,10 @@ export const Card = ({
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1 }}
     >
-      <CardImage imagePath={imagePath}></CardImage>
-      <a className="gp-1 text-sm">Published on: {publishedOn}</a>
+      {/* <CardImage imagePath={imagePath}></CardImage>
+      <a className="gp-1 text-sm">Published on: {publishedOn}</a> */}
 
-      <Title>My first blog</Title>
+      <Title>{title}</Title>
 
       <Summary>{text}</Summary>
       <Button id={id}></Button>

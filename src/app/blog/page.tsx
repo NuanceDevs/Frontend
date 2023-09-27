@@ -1,9 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card } from "../components/blog/Card";
 import CardContainer from "../components/blog/Cardcontainer";
 
+interface Blog {
+  id: number;
+  title: string;
+  summary: string;
+}
+
 const BlogPage: React.FC = () => {
+  const [blogs, setBlogs] = useState<Blog[]>([]); // Specify the type for blogs
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleBlogClick = () => {
@@ -14,38 +21,29 @@ const BlogPage: React.FC = () => {
     setIsModalOpen(false);
   };
 
+  useEffect(() => {
+    // Fetch data from the API when the component mounts
+    fetch("http://0.0.0.0:3001/api/blog/getAll")
+      .then((response) => response.json())
+      .then((data: Blog[]) => {
+        // Specify the type for data
+        setBlogs(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   return (
     <CardContainer>
-      <Card
-        id={1}
-        publishedOn="12 May 2021"
-        imagePath="/nuanceelogo.svg"
-        summary="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis viverra pretium turpis. Curabitur nec congue libero. Nunc bibendum in orci sed maximus. Mauris aliquet vitae diam et luctus. Quisque augue turpis, aliquam nec mattis et, tempus ut urna. Vivamus sed orci eget lorem lacinia fringilla. Vivamus ex nulla, viverra et magna ac, rhoncus venenatis lacus. Donec eros risus, fermentum non molestie eget, vulputate at justo. Ut et dui bibendum, "
-      />
-      <Card
-        id={2}
-        publishedOn="12 May 2022"
-        imagePath="/nuanceelogo.svg"
-        summary="Lorem ipsum dr sed maximus.Lorem ipsum dr sed maximus.Lorem ipsum dr sed maximus.Lorem ipsum dr sed maximus.Lorem ipsum dr sed maximus.Lorem ipsum dr sed maximus.Lorem ipsum dr sed maximus.Lorem ipsum dr sed maximus.Lorem ipsum dr sed maximus.Lorem ipsuLorem ipsum dr sed maximus.Lorem ipsum dr sed maximus.Lorem ipsum dr sed maximus.Lorem ipsum dr sed maximus.Lorem ipsum dr sed maximus.m dr sed maximus.Lorem ipsum dr sed maximus. Mauris aliquet vitae diam et luctus. Quisque augue turpis, aliquam nec mattis et, tempus ut urna. Vivamus sed orci eget lorem lacinia fringilla. Vivamus ex nulla, viverra et magna ac, rhoncus venenatis lacus. Donec eros risus, fermentum non molestie eget, vulputate at justo. Ut et dui bibendum, "
-      />
-      <Card
-        id={3}
-        publishedOn="12 May 2023"
-        imagePath="/nuanceelogo.svg"
-        summary="Lorem et lorem lacinia fringilla. Vivamus ex nulla, viverra et magna ac, rhoncus venenatis lacus. Donec eros risus, fermentum non molestie eget, vulputate at justo. Ut et dui bibendum, "
-      />
-      <Card
-        id={4}
-        publishedOn="12 May 2022"
-        imagePath="/nuanceelogo.svg"
-        summary="Lorem ipsum dr sed maximus. Mauris aliquet vitae diam et luctus. Quisque augue turpis, aliquam nec mattis et, tempus ut urna. Vivamus sed orci eget lorem lacinia fringilla. Vivamus ex nulla, viverra et magna ac, rhoncus venenatis lacus. Donec eros risus, fermentum non molestie eget, vulputate at justo. Ut et dui bibendum, "
-      />
-      <Card
-        id={5}
-        publishedOn="12 May 2022"
-        imagePath="/nuanceelogo.svg"
-        summary="Lorem ipsum dr sed maximus. Mauris aliquet vitae diam et luctus. Quisque augue turpis, aliquam nec mattis et, tempus ut urna. Vivamus sed orci eget lorem lacinia fringilla. Vivamus ex nulla, viverra et magna ac, rhoncus venenatis lacus. Donec eros risus, fermentum non molestie eget, vulputate at justo. Ut et dui bibendum, "
-      />
+      {blogs.map((blog: Blog) => (
+        <Card
+          key={blog.id}
+          title={blog.title}
+          id={blog.id}
+          summary={blog.summary}
+        />
+      ))}
     </CardContainer>
   );
 };
