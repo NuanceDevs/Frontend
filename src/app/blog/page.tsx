@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "../components/blog/Card";
 import CardContainer from "../components/blog/Cardcontainer";
+import { ApiGateway } from "../misc/ApiGateway";
 
 interface Blog {
   id: number;
@@ -22,11 +23,11 @@ const BlogPage: React.FC = () => {
   };
 
   useEffect(() => {
-    // Fetch data from the API when the component mounts
-    fetch("http://0.0.0.0:3001/api/blog/getAll")
-      .then((response) => response.json())
-      .then((data: Blog[]) => {
-        // Specify the type for data
+    // Call the API using the CustomApi class
+    const endpoint = "blog/getAll"; // Replace with your specific endpoint
+    ApiGateway.fetchData(endpoint)
+      .then((data) => {
+        // Specify the type for data if needed
         setBlogs(data);
       })
       .catch((error) => {
