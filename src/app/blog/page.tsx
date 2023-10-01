@@ -33,7 +33,7 @@ const BlogPage: React.FC = () => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []);
+  }, []); // Empty dependency array to run the effect once
 
   return (
     <CardContainer>
