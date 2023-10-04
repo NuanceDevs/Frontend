@@ -24,12 +24,20 @@ export const CreatePostModal: React.FC<CreatePostModalProps> = ({
     closeModal(); // Close the modal after creating the post
   };
 
+  // Prevent the modal from closing when clicking inside it
+  const stopPropagation = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
   return (
     <div
       className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-70 z-50"
       onClick={closeModal}
     >
-      <div className="bg-white p-4 rounded shadow-md text-black w-4/5">
+      <div
+        className="bg-white p-4 rounded shadow-md text-black w-4/5"
+        onClick={stopPropagation}
+      >
         <Title>Create New Post</Title>
 
         {/* Title input field */}

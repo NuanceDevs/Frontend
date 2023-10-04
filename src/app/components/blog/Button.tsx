@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { BlogModal } from "./PostModal"; // Import your ViewPostModal component
 import { CreatePostModal } from "./CreatePostModal"; // Import your CreatePostModal component
+import { ApiGateway } from "@/app/misc/ApiGateway";
 
 interface ButtonProps {
   text: string;
@@ -30,6 +31,11 @@ export const Button = ({ id, text }: ButtonProps) => {
     setIsModalOpen(false);
   };
 
+  const handleCreate = (title: string, content: string) => {
+    console.log("handleCreate");
+    ApiGateway.postData("blog/create", { title, content });
+  };
+
   return (
     <>
       <motion.div
@@ -49,7 +55,7 @@ export const Button = ({ id, text }: ButtonProps) => {
         ) : (
           <CreatePostModal
             onClose={closeModal}
-            onCreate={(title, content) => console.log(title, content)}
+            onCreate={(title, content) => handleCreate(title, content)}
           ></CreatePostModal>
         ))}
     </>
