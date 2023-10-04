@@ -4,7 +4,7 @@ import { Title } from "./Title";
 import { ApiGateway } from "@/app/misc/ApiGateway";
 
 interface BlogModalProps {
-  id: number;
+  id?: number;
   onClose: () => void;
 }
 
@@ -30,12 +30,10 @@ export const BlogModal: React.FC<BlogModalProps> = ({ onClose, id }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Replace 'ApiGateway.fetchData' with the actual function to fetch blog data
         const response = await ApiGateway.fetchData(`blog/${id}`);
         setBlogData(response); // Update the state with the fetched data
       } catch (error) {
         console.error("Error fetching blog data:", error);
-        // Handle error, e.g., show an error message
       }
     };
 
@@ -48,7 +46,7 @@ export const BlogModal: React.FC<BlogModalProps> = ({ onClose, id }) => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  });
+  }, []);
 
   // Render the blog content if data is available
   return (

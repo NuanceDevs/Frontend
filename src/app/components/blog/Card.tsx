@@ -28,7 +28,7 @@ export const Card = ({
       <Title>{title}</Title>
 
       <Summary>{text}</Summary>
-      <Button id={id}></Button>
+      <Button id={id} text={"Read more"}></Button>
     </motion.div>
   );
 };

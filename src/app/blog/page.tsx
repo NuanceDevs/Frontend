@@ -23,17 +23,16 @@ const BlogPage: React.FC = () => {
   };
 
   useEffect(() => {
-    // Call the API using the CustomApi class
     const endpoint = "blog/getAll"; // Replace with your specific endpoint
     ApiGateway.fetchData(endpoint)
       .then((data) => {
-        // Specify the type for data if needed
+        
         setBlogs(data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []); // Empty dependency array to run the effect once
+  }, []); 
 
   return (
     <CardContainer>
