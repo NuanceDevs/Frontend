@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main","develop"]
+  pull_request:
+    branches: [ "main","develop"]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      working-directory: ./
+      run: docker build . --file Dockerfile --tag ricocelsius/nuance-frontend
+    - name: Publish
+      run: | 
+        docker login -u ricocelsius -p ${{ secrets.DOCKER_HUB_TOKEN }}
+        docker push ricocelsius/nuance-frontend:latest
