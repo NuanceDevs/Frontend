@@ -1,6 +1,9 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
+import Logo from "../../../../public/nuanceelogo.svg";
+import Searchbar from "../searchbar/searchbar";
 
 interface navbarProps {
   name: string;
@@ -31,18 +34,32 @@ const Navbar: React.FC<{ navigation: navbarProps[] }> = ({ navigation }) => {
   };
 
   return (
-    <nav className="my-16 animate-fade-in">
-      <ul className="flex items-center justify-center gap-4">
-        {navigation.map((item) => (
-          <li
-            key={item.href}
-            style={listItemStyle}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Link href={item.href}>{item.name}</Link>
-          </li>
-        ))}
+    <nav className="w-full h-24 animate-fade-in shadow-xl bg-white flex items-start">
+      <ul className="flex items-center w-full h-full justify-center px-4 text-black =">
+          <Link href="/">
+            <Image src={Logo}
+             alt={"Logo"}
+            width={205}
+            height={105}
+            className=''
+            priority>
+            </Image>
+          </Link>
+          <Searchbar></Searchbar>
+          <ul className='hidden sm:flex'>
+    	      <Link href="/about">
+              <li className='ml-10 hover: border-b text-xl'>About</li>
+            </Link>
+            <Link href="/shopping">
+              <li className='ml-10 hover: border-b text-xl'>Shopping</li>
+            </Link>
+            <Link href="/Sale">
+              <li className='ml-10 hover: border-b text-xl'>Images</li>
+            </Link>
+            <Link href="/blog">
+              <li className='ml-10 hover: border-b text-xl'>Maps</li>
+            </Link>
+            </ul>
       </ul>
     </nav>
   );
