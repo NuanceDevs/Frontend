@@ -19,12 +19,10 @@ export const CreatePostModal: React.FC<CreatePostModalProps> = ({
   };
 
   const handleCreate = () => {
-    // Call the onCreate callback with the title and content
     onCreate(title, content);
-    closeModal(); // Close the modal after creating the post
+    closeModal();
   };
 
-  // Prevent the modal from closing when clicking inside it
   const stopPropagation = (e: React.MouseEvent) => {
     e.stopPropagation();
   };

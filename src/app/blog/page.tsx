@@ -8,20 +8,11 @@ import { Button } from "../components/blog/Button";
 interface Blog {
   id: number;
   title: string;
-  summary: string;
+  content: string;
 }
 
 const BlogPage: React.FC = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]); // Specify the type for blogs
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleBlogClick = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const [blogs, setBlogs] = useState<Blog[]>([]); 
 
   useEffect(() => {
     const endpoint = "blog/getAll"; // Replace with your specific endpoint
@@ -45,7 +36,7 @@ const BlogPage: React.FC = () => {
             key={blog.id}
             title={blog.title}
             id={blog.id}
-            summary={blog.summary}
+            content={blog.content}
           />
         ))}
       </CardContainer>

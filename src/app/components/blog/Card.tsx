@@ -8,11 +8,11 @@ import { Button } from "./Button";
 export const Card = ({
   id,
   title,
-  summary: text,
+  content: text,
 }: {
   id: number;
   title: string;
-  summary: string;
+  content: string;
 }) => {
   return (
     <motion.div
