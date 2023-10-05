@@ -9,7 +9,7 @@ interface navbarProps {
 
 const Navbar: React.FC<{ navigation: navbarProps[] }> = ({ navigation }) => {
   // Define the initial and hover text colors
-  const initialTextColor = "white";
+  const initialTextColor = "black";
   const hoverTextColor = "darkgrey";
 
   // Define a style object for the list items
