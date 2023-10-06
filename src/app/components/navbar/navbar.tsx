@@ -2,8 +2,10 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import Logo from "../../../../public/nuanceelogo.svg";
+import Logo from "../../../../public/nuancelogo.svg";
+import SettingsGear from "../../../../public/settings-gear.svg"; 
 import Searchbar from "../searchbar/searchbar";
+
 
 interface navbarProps {
   name: string;
@@ -34,30 +36,38 @@ const Navbar: React.FC<{ navigation: navbarProps[] }> = ({ navigation }) => {
   };
 
   return (
-    <nav className="w-full h-24 animate-fade-in shadow-xl bg-white flex items-start">
-      <ul className="flex items-center w-full h-full justify-center px-4 text-black =">
-          <Link href="/">
+    <nav className="w-full h-24 animate-fade-in shadow-xl bg-black flex items-start">
+      <ul className="flex items-center w-full h-full justify-center px-4 text-white =">
+          <ul className='hidden sm:flex'>
+    	      <Link href="/about">
+              <li className='ml-10 hover:'>About</li>
+            </Link>
+            <Link href="/">
             <Image src={Logo}
              alt={"Logo"}
-            width={205}
-            height={105}
+            width={100}
+            height={100}
             className=''
             priority>
             </Image>
           </Link>
-          <Searchbar></Searchbar>
-          <ul className='hidden sm:flex'>
-    	      <Link href="/about">
-              <li className='ml-10 hover: border-b text-xl'>About</li>
-            </Link>
             <Link href="/shopping">
-              <li className='ml-10 hover: border-b text-xl'>Shopping</li>
+              <li className='ml-10 hover: sm:flex'>Shopping</li>
             </Link>
             <Link href="/Sale">
-              <li className='ml-10 hover: border-b text-xl'>Images</li>
+              <li className='ml-10 hover: sm:flex'>Images</li>
             </Link>
             <Link href="/blog">
-              <li className='ml-10 hover: border-b text-xl'>Maps</li>
+              <li className='ml-10 hover: sm:flex'>Maps</li>
+            </Link>
+            <Link href="/settings">
+            <Image src={SettingsGear}
+             alt={"Logo"}
+            width={25}
+            height={25}
+            className='ml-10 hover: sm:flex'
+            priority>
+            </Image>
             </Link>
             </ul>
       </ul>
