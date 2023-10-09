@@ -25,9 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar navigation={navigation} />
+        <Navbar/>
         {children}
       </body>
+      <div>
+        <p className='text-darktheme-300'> this is a test to see if the colors work from te tailwind config file</p>
+      </div>
     </html>
   );
 }
