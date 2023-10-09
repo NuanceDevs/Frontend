@@ -79,14 +79,15 @@
 
 // components/Navbar.js
 "use client";
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Logo from "../../../../public/nuancelogo.svg";
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    // Toggle dark mode class on the <html> element
     document.documentElement.classList.toggle('dark', darkMode);
   }, [darkMode]);
 
@@ -98,25 +99,26 @@ const Navbar = () => {
     <nav className={`bg-${darkMode ? 'dark-' : ''}gray-900 p-4`}>
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
-          <Link href="/">
-            <a className={`text-white text-xl font-semibold ${darkMode ? 'dark:text-gray-300' : ''}`}>Google</a>
-          </Link>
-          <div className="space-x-4">
-            <Link href="/search">
-              <a className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>Search</a>
+          <div className="space-x-4 ">
+          <Image src={Logo} alt="nuance logo" width={100} height={24} />
+            <Link href="/about" className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>
+              about
             </Link>
-            <Link href="/images">
-              <a className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>Images</a>
+            <Link href="/shopping" className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>
+              Shopping
             </Link>
-            <Link href="/news">
-              <a className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>News</a>
+            <Link href="/images" className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>
+              Images
             </Link>
-          </div>
-          <div className="flex space-x-4">
-            <a className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>Gmail</a>
-            <a className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>Images</a>
-            <a className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>Apps</a>
-            {/* Add more links as needed */}
+            <Link href="/maps" className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>
+              Maps
+            </Link>
+            <Link href="/settings" className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>
+              Settings
+            </Link>
+            <Link href="/profile" className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>
+              Profile
+            </Link>
           </div>
           <button
             onClick={toggleDarkMode}
@@ -131,6 +133,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-git config --global user.email "you@example.com"
-git config --global user.name "Your Name"
