@@ -1,7 +1,9 @@
 import "./globals.css";
+import Logo  from "./components/Logo/logo";
+import Navbar  from "./components/navbar/navbar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "./components/navbar/navbar";
+import Link from 'next/link';
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -24,13 +26,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <header>
+        <Navbar></Navbar>
+      </header>
       <body>
-        <Navbar/>
-        {children}
+        <Logo></Logo>
+        {/* <Searchbar></Searchbar> */}
       </body>
-      <div>
-        <p className='text-darktheme-300'> this is a test to see if the colors work from te tailwind config file</p>
-      </div>
+      <footer>
+        {/* <Footer></Footer> */}
+      </footer>
     </html>
   );
 }

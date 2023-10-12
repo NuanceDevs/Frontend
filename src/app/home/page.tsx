@@ -1,8 +1,12 @@
 import Image from "next/image";
 import Navbar from "../components/navbar/navbar";
 import Searchbar from "../components/searchbar/searchbar";
-import '../../../tailwind.config';
+import Logo from "../components/Logo/logo";
 
 export default function Home() {
-  return 
+  return(
+    <div className="">
+      <Logo/>
+    </div>
+  );
 }

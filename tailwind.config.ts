@@ -2,24 +2,28 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
+    "./node_modules/flowbite-react/**/*.js",
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
-      colors: {
-        'dark-blue-500': '#1a73e8',
-        'gray-900': '#111111',
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+    },
+    fontFamily:{
 
-        darktheme:{
-          100: '#dddddd',
-          200: 'a9a9a9',
-          300: '#8d8d8d',
-          400: '#5f5f5f',
-          500: '#424242',
-        }
-      },
+    },
+  
+    colors:{
+      navbartext: '#E0E0E0',
+      navbarbackground:'#212121',
+      navbartexthover:'blue-500',
+    },
+    extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -27,6 +31,8 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("flowbite/plugin")
+  ],
 }
 export default config

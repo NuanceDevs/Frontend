@@ -1,135 +1,39 @@
-// "use client";
-// import Link from "next/link";
-// import React from "react";
-// import Image from "next/image";
-// import Logo from "../../../../public/nuancelogo.svg";
-// import SettingsGear from "../../../../public/settings-gear.svg"; 
-// import Searchbar from "../searchbar/searchbar";
+'use client';
+import Logo from '../Logo/logo'
+import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 
-
-// interface navbarProps {
-//   name: string;
-//   href: string;
-// }
-
-// const Navbar: React.FC<{ navigation: navbarProps[] }> = ({ navigation }) => {
-//   // Define the initial and hover text colors
-//   const initialTextColor = "black";
-//   const hoverTextColor = "darkgrey";
-
-//   // Define a style object for the list items
-//   const listItemStyle = {
-//     color: initialTextColor,
-//     transition: "color 0.3s ease-in-out", // Add a transition for smooth color change
-//   };
-
-//   // Function to handle mouse enter (hover) event
-//   const handleMouseEnter = (e: React.MouseEvent<HTMLLIElement>) => {
-//     // Change the text color to hoverTextColor when the mouse enters
-//     e.currentTarget.style.color = hoverTextColor;
-//   };
-
-//   // Function to handle mouse leave event
-//   const handleMouseLeave = (e: React.MouseEvent<HTMLLIElement>) => {
-//     // Change the text color back to initialTextColor when the mouse leaves
-//     e.currentTarget.style.color = initialTextColor;
-//   };
-
-//   return (
-//     <nav className="w-full h-24 animate-fade-in shadow-xl bg-darktheme-500 flex items-start">
-//       <ul className="flex items-center w-full h-full justify-center px-4 text-white =">
-//           <ul className='hidden sm:flex'>
-//     	      <Link href="/about">
-//               <li className='ml-10 hover:'>About</li>
-//             </Link>
-//             <Link href="/">
-//             <Image src={Logo}
-//              alt={"Logo"}
-//             width={100}
-//             height={100}
-//             className=''
-//             priority>
-//             </Image>
-//           </Link>
-//             <Link href="/shopping">
-//               <li className='ml-10 hover: sm:flex'>Shopping</li>
-//             </Link>
-//             <Link href="/Sale">
-//               <li className='ml-10 hover: sm:flex'>Images</li>
-//             </Link>
-//             <Link href="/blog">
-//               <li className='ml-10 hover: sm:flex'>Maps</li>
-//             </Link>
-//             <Link href="/settings">
-//             <Image src={SettingsGear}
-//              alt={"Logo"}
-//             width={25}
-//             height={25}
-//             className='ml-10 hover: sm:flex'
-//             priority>
-//             </Image>
-//             </Link>
-//             </ul>
-//       </ul>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
-// components/Navbar.js
-"use client";
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import Logo from "../../../../public/nuancelogo.svg";
-
-const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', darkMode);
-  }, [darkMode]);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
+export default function NavbarWithDropdown() {
   return (
-    <nav className={`bg-${darkMode ? 'dark-' : ''}gray-900 p-4`}>
-      <div className="container mx-auto">
-        <div className="flex justify-between items-center">
-          <div className="space-x-4 ">
-          <Image src={Logo} alt="nuance logo" width={100} height={24} />
-            <Link href="/about" className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>
-              about
-            </Link>
-            <Link href="/shopping" className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>
-              Shopping
-            </Link>
-            <Link href="/images" className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>
-              Images
-            </Link>
-            <Link href="/maps" className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>
-              Maps
-            </Link>
-            <Link href="/settings" className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>
-              Settings
-            </Link>
-            <Link href="/profile" className={`text-white ${darkMode ? 'dark:text-gray-300' : ''}`}>
-              Profile
-            </Link>
-          </div>
-          <button
-            onClick={toggleDarkMode}
-            className={`text-white focus:outline-none ${darkMode ? 'dark:text-gray-300' : ''}`}
-          >
-            {darkMode ? 'Light Mode' : 'Dark Mode'}
-          </button>
+        <nav className="bg-black dark:bg-black fixed w-full z-20 top-0 left-0 border-b border-gray-900 dark:border-gray-900">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="/home" className="flex items-center">
+            <Logo></Logo>
+        </a>
+        <div className="flex md:order-2">
+            <button type="button" className="text-white bg-black hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-clack dark:hover:bg-blue-700 dark:focus:ring-blue-800">Profile</button>
+            <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-black focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-white dark:hover:bg-black dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+                <span className="sr-only">Open main menu</span>
+                <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
         </div>
-      </div>
-    </nav>
-  );
+        <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-black rounded-lg bg-black md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-black dark:bg- md:dark:bg-gray-900 dark:border-gray-900">
+            <li>
+                <a href="/about" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-black md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-black dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+            </li>
+            <li>
+                <a href="/blog" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-black md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-black dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">blog</a>
+            </li>
+            <li>
+                <a href="/shopping" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-black md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-black dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">shopping</a>
+            </li>
+            </ul>
+        </div>
+        </div>
+        </nav>
+  )
 };
 
-export default Navbar;
+
