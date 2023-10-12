@@ -14,8 +14,10 @@
 }
 
 .logo{
-  width: 100px;
-  height: 100px;
+  width: 800px;
+  height: 800px;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar{
@@ -24,8 +26,4 @@
   height: 50px;
   color: white;
   margin-left: 1rem;
-}
-
-.links{
-  
 }

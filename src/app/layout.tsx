@@ -1,6 +1,6 @@
 import "./globals.css";
 import Logo  from "./components/Logo/logo";
-import Navbar  from "./components/navbar/navbar";
+import NavbarHome  from "./components/navbar/navbar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from 'next/link';
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <header>
-        <Navbar></Navbar>
+        <NavbarHome></NavbarHome>
       </header>
       <body>
         <Logo></Logo>
