@@ -1,9 +1,9 @@
 import "./globals.css";
-import Logo  from "./components/Logo/logo";
-import NavbarHome  from "./components/navbar/navbar";
+import Logo from "./components/Logo/logo";
+import NavbarHome from "./components/navbar/navbar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Link from 'next/link';
+import Searchbar from "./components/searchbar/searchbar";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -26,16 +26,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <header>
-        <NavbarHome></NavbarHome>
-      </header>
       <body>
-        <Logo></Logo>
-        {/* <Searchbar></Searchbar> */}
+        <NavbarHome></NavbarHome>
+        <div className="flex flex-col items-center justify-center h-screen">
+          <Logo></Logo>
+          <Searchbar></Searchbar>
+        </div>
       </body>
-      <footer>
-        {/* <Footer></Footer> */}
-      </footer>
     </html>
   );
 }

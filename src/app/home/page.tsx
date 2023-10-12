@@ -4,17 +4,17 @@ import Searchbar from "../components/searchbar/searchbar";
 import Logo from "../components/Logo/logo";
 
 export default function Home() {
-  return(
+  return (
     <div className="">
       <header>
-        <NavbarHome/>
+        <NavbarHome />
       </header>
       <body className="">
-        <Logo/>
+        <div>
+          <Logo />
+        </div>
       </body>
-      <footer>
-
-      </footer>
+      <footer></footer>
     </div>
   );
 }

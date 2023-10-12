@@ -1,11 +1,11 @@
-import Image from 'next/image';
-import logo from '../../../../public/nuancelogo.svg';
+import Image from "next/image";
+import logo from "../../../../public/nuancelogoresized.png";
 
 function Logo() {
   return (
-    <div className='logo'>
-      <Image className='' src={logo} alt="nuancée logo"/>
-    </div>
+    <>
+      <Image src={logo} alt="nuancée logo" />
+    </>
   );
 }
 
