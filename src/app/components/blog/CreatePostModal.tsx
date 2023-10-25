@@ -1,5 +1,5 @@
+"use client"
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { Title } from "./Title";
 
 interface CreatePostModalProps {

@@ -1,5 +1,5 @@
+"use client"
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { BlogModal } from "./PostModal"; // Import your ViewPostModal component
 import { CreatePostModal } from "./CreatePostModal"; // Import your CreatePostModal component
 import { ApiGateway } from "@/app/misc/ApiGateway";
@@ -33,20 +33,19 @@ export const Button = ({ id, text }: ButtonProps) => {
 
   const handleCreate = (title: string, content: string) => {
     console.log("handleCreate");
-    ApiGateway.postData("blog/create", { title, content });
+    const summary:string = "test"
+    ApiGateway.postData("blog/create", { title, summary, content });
   };
 
   return (
     <>
-      <motion.div
-        whileHover="hover"
-        initial="initial"
-        variants={buttonVariants}
+      <div
+    
         className="rounded-md p-2"
         onClick={openModal}
       >
         <button>{text}</button>
-      </motion.div>
+      </div>
 
       {isModalOpen &&
         // Render either ViewPostModal or CreatePostModal based on 'id'
