@@ -1,6 +1,6 @@
 export class ApiGateway {
   // Define the base URL for your API
-  static baseUrl = "http://0.0.0.0:3001/api/";
+  static baseUrl = "http://31.220.82.225:3001/api/";
 
   // Static function to make API calls
   static async fetchData(endpoint: string) {
