@@ -12,7 +12,7 @@ interface Blog {
 }
 
 const BlogPage: React.FC = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]); 
+  const [blogs, setBlogs] = useState<Blog[]>([]);
 
   useEffect(() => {
     const endpoint = "blog/getAll"; // Replace with your specific endpoint
@@ -28,7 +28,7 @@ const BlogPage: React.FC = () => {
   return (
     <>
       <div className="w-1/3">
-        <Button text={"Addd post"}></Button>
+        <Button text={"Add post"}></Button>
       </div>
       <CardContainer>
         {blogs.map((blog: Blog) => (
