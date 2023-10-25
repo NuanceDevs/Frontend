@@ -18,7 +18,6 @@ const BlogPage: React.FC = () => {
     const endpoint = "blog/getAll"; // Replace with your specific endpoint
     ApiGateway.fetchData(endpoint)
       .then((data) => {
-        console.log(endpoint)
         setBlogs(data);
       })
       .catch((error) => {

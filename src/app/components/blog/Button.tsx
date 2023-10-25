@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import { BlogModal } from "./PostModal"; // Import your ViewPostModal component
 import { CreatePostModal } from "./CreatePostModal"; // Import your CreatePostModal component

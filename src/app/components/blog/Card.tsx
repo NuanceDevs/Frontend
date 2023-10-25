@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { CardImage } from "./CardImage";
 import { Title } from "./Title";
