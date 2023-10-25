@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 interface FadeInTextProps {
   children: React.ReactNode;
@@ -9,13 +8,10 @@ interface FadeInTextProps {
 
 export const FadeInText = ({ children, duration, delay }: FadeInTextProps) => {
   return (
-    <motion.div
+    <div
       className="welcome-box"
-      initial={{ opacity: 0, scale: 1 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: duration, delay: delay }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };

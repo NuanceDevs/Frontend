@@ -10,12 +10,14 @@ export class ApiGateway {
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
+
     const data = await response.json();
     return data;
   }
 
   static async postData(endpoint: string, data: any) {
     const apiUrl = `${ApiGateway.baseUrl}${endpoint}`;
+    console.log(apiUrl)
 
     const response = await fetch(apiUrl, {
       method: "POST",
