@@ -28,7 +28,7 @@ const BlogPage: React.FC = () => {
   return (
     <>
       <div className="w-1/3">
-        <Button text={"Add post"}></Button>
+        <Button text={"Addd post"}></Button>
       </div>
       <CardContainer>
         {blogs.map((blog: Blog) => (
