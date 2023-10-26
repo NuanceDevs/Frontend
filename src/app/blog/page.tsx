@@ -16,6 +16,7 @@ const BlogPage: React.FC = () => {
 
   useEffect(() => {
     const endpoint = "blog/getAll"; // Replace with your specific endpoint
+  console.log(process.env.NEXT_PUBLIC_GATEWAY_IP)
     ApiGateway.fetchData(endpoint)
       .then((data) => {
         setBlogs(data);
