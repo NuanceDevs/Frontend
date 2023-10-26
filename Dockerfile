@@ -8,18 +8,16 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install NestJS application dependencies
-RUN npm install
+RUN npm install --production
 
 # Copy the rest of the application source code to the container
 FROM node:16-alpine as main
 COPY . .
+COPY --from=build /app /
 
 # Expose port 3000
 EXPOSE 3000
-COPY --from=build /app /
-
-
-# Define the command to run your NestJS application
-CMD ["npm", "run", "dev"]
+RUN npm run build
+CMD ["npm", "start"]
 
 
