@@ -8,7 +8,7 @@ const navigation = [
   { name: "Portfolio", href: "/projects" },
   { name: "Blog", href: "/blog" },
   { name: "About", href: "/about" },
-  { name: "Login", href: "/contact" },
+  { name: "Login", href: "/login" },
 ];
 const inter = Inter({ subsets: ["latin"] });
 
