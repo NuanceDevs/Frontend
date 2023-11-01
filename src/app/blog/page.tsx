@@ -4,8 +4,9 @@ import { Card } from "../components/blog/Card";
 import CardContainer from "../components/blog/Cardcontainer";
 import { ApiGateway } from "../misc/ApiGateway";
 import { Button } from "../components/blog/Button";
+import { type } from "os";
 
-interface Blog {
+type Blog = {
   id: number;
   title: string;
   content: string;
@@ -28,8 +29,8 @@ const BlogPage: React.FC = () => {
 
   return (
     <>
-      <div className="w-1/3">
-        <Button text={"Addd post"}></Button>
+      <div className="w-1/3 border-2">
+        <Button text={"Add post"}></Button>
       </div>
       <CardContainer>
         {blogs.map((blog: Blog) => (

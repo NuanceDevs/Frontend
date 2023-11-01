@@ -19,6 +19,7 @@ export const Card = ({
       className="border border-white rounded-md mb-4 p-4 space-y-4" // Utilize Tailwind classes
       style={{ minHeight: "250px" }}
     >
+      
       {/* <CardImage imagePath={imagePath}></CardImage>
       <a className="gp-1 text-sm">Published on: {publishedOn}</a> */}
 
