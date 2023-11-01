@@ -10,14 +10,14 @@ type Blog = {
   id: number;
   title: string;
   content: string;
-}
+};
 
 const BlogPage: React.FC = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
 
   useEffect(() => {
-    const endpoint = "blog/getAll"; // Replace with your specific endpoint
-  console.log(process.env.NEXT_PUBLIC_GATEWAY_IP)
+    const endpoint = "blog/getAll";
+    console.log(process.env.NEXT_PUBLIC_GATEWAY_IP);
     ApiGateway.fetchData(endpoint)
       .then((data) => {
         setBlogs(data);
