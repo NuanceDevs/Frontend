@@ -25,6 +25,11 @@
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
   },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
+  },
   "devDependencies": {
     "@types/react": "^18.2.32"
   }
