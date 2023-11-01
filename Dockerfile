@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a parent image
-FROM node:16 as build
+FROM node:18 as build
 
 # Set the working directory in the container
 WORKDIR /app
@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install --production
 
 # Copy the rest of the application source code to the container
-FROM node:16-alpine as main
+FROM node:18-alpine as main
 COPY . .
 COPY --from=build /app /
 
