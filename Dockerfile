@@ -11,13 +11,7 @@ COPY package*.json ./
 RUN npm install 
 
 # Copy the rest of the application source code to the container
-FROM node:18-alpine as main
 COPY . .
-COPY --from=build /app /
 
-# Expose port 3000
-EXPOSE 3000
-RUN npm run build
-CMD ["npm", "start"]
-
-
+# Start a development server with hot-reloading
+CMD ["npm", "run", "start:dev"]

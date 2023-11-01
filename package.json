@@ -18,16 +18,13 @@
     "framer-motion": "^10.16.4",
     "next": "13.5.1",
     "next-auth": "^4.24.4",
+    "nextjs-basic-auth-middleware": "^3.1.0",
+    "npm": "^10.2.2",
     "postcss": "8.4.30",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
-  },
-  "browser": {
-    "fs": false,
-    "os": false,
-    "path": false
   },
   "devDependencies": {
     "@types/react": "^18.2.32"
