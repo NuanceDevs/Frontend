@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install NestJS application dependencies
-RUN npm install --production
+RUN npm install 
 
 # Copy the rest of the application source code to the container
 FROM node:18-alpine as main
