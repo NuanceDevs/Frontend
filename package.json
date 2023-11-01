@@ -16,7 +16,6 @@
     "eslint": "8.49.0",
     "eslint-config-next": "13.5.1",
     "framer-motion": "^10.16.4",
-    "fs": "^0.0.1-security",
     "next": "13.5.1",
     "next-auth": "^4.24.4",
     "postcss": "8.4.30",
