@@ -13,7 +13,7 @@ type Blog = {
 }
 
 const BlogPage: React.FC = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]); 
+  const [blogs, setBlogs] = useState<Blog[]>([]);
 
   useEffect(() => {
     const endpoint = "blog/getAll"; // Replace with your specific endpoint
