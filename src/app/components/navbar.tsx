@@ -1,13 +1,19 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import type { User } from 'next-auth'  
 
 interface navbarProps {
   name: string;
   href: string;
 }
 
-const Navbar: React.FC<{ navigation: navbarProps[] }> = ({ navigation }) => {
+type Props = {
+  user: User,
+  pagetype: string,
+}
+
+const Navbar: React.FC<{ navigation: navbarProps[]}> = ({ navigation }) => {
   // Define the initial and hover text colors
   const initialTextColor = "white";
   const hoverTextColor = "darkgrey";
