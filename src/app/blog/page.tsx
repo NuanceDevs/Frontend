@@ -9,6 +9,7 @@ import { type } from "os";
 type Blog = {
   id: number;
   title: string;
+  publishedOn: Date;
   content: string;
 };
 
@@ -36,6 +37,7 @@ const BlogPage: React.FC = () => {
         {blogs.map((blog: Blog) => (
           <Card
             key={blog.id}
+            publishedOn={blog.publishedOn}
             title={blog.title}
             id={blog.id}
             content={blog.content}
