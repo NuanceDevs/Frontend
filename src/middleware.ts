@@ -14,4 +14,4 @@ export default withAuth(
     }
 )
 
-export const config = {matcher: ['/dashboard', '/blog, /login']}
+export const config = {matcher: ['/login']}

@@ -2,6 +2,7 @@ import type { NextAuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import Credentials, { CredentialsProvider } from "next-auth/providers/credentials";
 import { GithubProfile } from "next-auth/providers/github";
+import { redirect } from "next/dist/server/api-utils";
 
 export const options: NextAuthOptions = {
     providers:[
@@ -34,7 +35,7 @@ export const options: NextAuthOptions = {
             },
             async authorize(credentials: Record<"username" | "password", string> | undefined){
                 //User hier ophalen vanuit database en credential check doen 
-                const user = {id: "42", name: 'dave', password: 'nextAuth', role: 'admin'}
+                const user = {id: "44", name: 'Martijn', password: 'Martijn123', role: 'admin'}
 
                 if (credentials?.username === user.name && credentials?.password === user.password){
                     return user

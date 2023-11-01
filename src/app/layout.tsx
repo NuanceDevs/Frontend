@@ -30,7 +30,6 @@ export default function RootLayout({
       <body>
         <Navbar navigation={navigation} />
         {children}
-        <UserCard user={undefined} pagetype={""}></UserCard>
       </body>
     </html>
   );
