@@ -49,12 +49,20 @@ export const options: NextAuthOptions = {
         // Ref: https://authjs.dev/guides/basics/role-based-access-control#persisting-the-role
         async jwt({ token, user }) {
             if (user) token.role = user.role
+            redirect
             return token
         },
         // If you want to use the role in client components
         async session({ session, token }) {
             if (session?.user) session.user.role = token.role
-            return session
+            redirect
+            return session 
         },
+
+        async redirect({ url, baseUrl }) {
+            // Allows relative callback URLs
+            if (url.startsWith("/")) return `${baseUrl}${url}`
+            return baseUrl
+          }
     }
 }
