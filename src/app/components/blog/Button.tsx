@@ -1,12 +1,14 @@
-"use client"
+"use client";
 import React, { useState } from "react";
-import { BlogModal } from "./PostModal"; // Import your ViewPostModal component
-import { CreatePostModal } from "./CreatePostModal"; // Import your CreatePostModal component
+import { BlogModal } from "./ViewPostModal"; 
+import { CreatePostModal } from "./CreatePostModal";
 import { ApiGateway } from "@/app/misc/ApiGateway";
+import { Modal } from "./Modal";
+import { DeletePostModal } from "./DeletePostModal";
 
 interface ButtonProps {
   text: string;
-  id?: number; // Make the 'id' parameter optional by adding a question mark.
+  id?: number; 
 }
 
 export const Button = ({ id, text }: ButtonProps) => {
@@ -31,32 +33,56 @@ export const Button = ({ id, text }: ButtonProps) => {
     setIsModalOpen(false);
   };
 
+  const handleDelete = (id: number) => {
+    ApiGateway.deleteData("blog/delete", { id });
+    console.log(`Deleted ${id}`);
+    closeModal();
+  };
+
   const handleCreate = (title: string, content: string) => {
     console.log("handleCreate");
-    const summary:string = "test"
+    const summary: string = "test";
     ApiGateway.postData("blog/create", { title, summary, content });
+    closeModal();
   };
+
+  let modalContent;
+  switch (text) {
+    case "Read more":
+      modalContent = <BlogModal id={id}></BlogModal>;
+      break;
+    case "Add post":
+      modalContent = (
+        <CreatePostModal
+          onCreate={(title, content) => handleCreate(title, content)}
+          onCancel={closeModal}
+        ></CreatePostModal>
+      );
+      break;
+    case "Delete post":
+      modalContent = (
+        <DeletePostModal
+          onYes={(id) => handleDelete(id)}
+          id={id}
+        ></DeletePostModal>
+      );
+      break;
+
+    default:
+      modalContent = null;
+  }
 
   return (
     <>
-      <div
-    
-        className="rounded-md p-2"
-        onClick={openModal}
-      >
+      <div className="rounded-md p-2" onClick={openModal}>
         <button>{text}</button>
       </div>
 
-      {isModalOpen &&
-        // Render either ViewPostModal or CreatePostModal based on 'id'
-        (id != null ? (
-          <BlogModal id={id} onClose={closeModal}></BlogModal>
-        ) : (
-          <CreatePostModal
-            onClose={closeModal}
-            onCreate={(title, content) => handleCreate(title, content)}
-          ></CreatePostModal>
-        ))}
+      {isModalOpen && (
+        <Modal id={id} onClose={closeModal}>
+          {modalContent}
+        </Modal>
+      )}
     </>
   );
 };

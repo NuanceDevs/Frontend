@@ -1,9 +1,27 @@
 export class ApiGateway {
   // Define the base URL for your API
-  static baseUrl = "http://31.220.82.225:3001/api/";
+  static baseUrl: string;
+
+  static initializeBaseUrl() {
+    const gatewayIp = process.env.NEXT_PUBLIC_GATEWAY_IP;
+    const gatewayPort = process.env.NEXT_PUBLIC_GATEWAY_PORT;
+
+    console.log(gatewayIp);
+    console.log(gatewayPort);
+
+    if (!gatewayIp || !gatewayPort) {
+      throw new Error("GATEWAY_IP or GATEWAY_PORT not defined in .env");
+    }
+
+    ApiGateway.baseUrl = `http://${gatewayIp}:${gatewayPort}/api/`;
+  }
 
   // Static function to make API calls
   static async fetchData(endpoint: string) {
+    if (!ApiGateway.baseUrl) {
+      ApiGateway.initializeBaseUrl();
+    }
+
     const apiUrl = `${ApiGateway.baseUrl}${endpoint}`;
 
     const response = await fetch(apiUrl);
@@ -16,11 +34,41 @@ export class ApiGateway {
   }
 
   static async postData(endpoint: string, data: any) {
+    if (!ApiGateway.baseUrl) {
+      ApiGateway.initializeBaseUrl();
+    }
+
     const apiUrl = `${ApiGateway.baseUrl}${endpoint}`;
-    console.log(apiUrl)
 
     const response = await fetch(apiUrl, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const responseData = await response.json();
+    return responseData;
+  }
+
+  static async deleteData(endpoint: string, data: any) {
+    if (!ApiGateway.baseUrl) {
+      ApiGateway.initializeBaseUrl();
+    }
+
+    console.log(endpoint);
+    console.log(data);
+    console.log(JSON.stringify(data));
+
+    const apiUrl = `${ApiGateway.baseUrl}${endpoint}`;
+
+    const response = await fetch(apiUrl, {
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
