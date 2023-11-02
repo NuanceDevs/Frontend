@@ -39,7 +39,6 @@ export const BlogModal: React.FC<BlogModalProps> = ({ id }) => {
           <p>{blogData.content}</p>
         </>
       ) : (
-        // Display a loading indicator or message while data is being fetched
         <p>Loading...</p>
       )}
     </div>

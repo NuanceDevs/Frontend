@@ -12,8 +12,8 @@ export const Summary = ({ children }: SummaryProps) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        height: "200px", // Set a fixed height here, adjust it as needed
-        overflow: "hidden", // Hide overflow content
+        height: "200px", 
+        overflow: "hidden", 
       }}
     >
       <div style={{ flex: 1, overflowY: "auto" }}>{children}</div>
