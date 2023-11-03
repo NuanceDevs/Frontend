@@ -1,17 +1,17 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "./components/navbar";
-import Description from "./components/description";
+import Navbar from "./ui/components/navbar";
+import Description from "./ui/components/description";
 import { Session } from "inspector";
-import UserCard  from "./components/UserCard";
+import UserCard  from "./ui/components/UserCard";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Portfolio", href: "/projects" },
-  { name: "Blog", href: "/blog" },
-  { name: "About", href: "/about" },
-  { name: "Login", href: "/login" },
+  { name: "Portfolio", href: "/ui/pages/projects" },
+  { name: "Blog", href: "/ui/pages/blog" },
+  { name: "About", href: "/ui/pages/about" },
+  { name: "Login", href: "/api/auth/signin" },
 ];
 const inter = Inter({ subsets: ["latin"] });
 
