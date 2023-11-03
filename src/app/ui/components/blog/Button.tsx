@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { BlogModal } from "./ViewPostModal"; 
 import { CreatePostModal } from "./CreatePostModal";
-import { ApiGateway } from "@/app/misc/ApiGateway";
+import { ApiGateway } from "@/app/lib/ApiGateway";
 import { Modal } from "./Modal";
 import { DeletePostModal } from "./DeletePostModal";
 

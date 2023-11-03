@@ -1,10 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "./components/navbar";
-import Description from "./components/description";
+import Navbar from "../components/navbar";
+import Description from "../components/description";
 import { Session } from "inspector";
-import UserCard  from "./components/UserCard";
+import UserCard  from "../components/UserCard";
 
 const navigation = [
   { name: "Home", href: "/" },

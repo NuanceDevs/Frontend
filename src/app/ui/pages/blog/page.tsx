@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Card } from "../components/blog/Card";
-import CardContainer from "../components/blog/Cardcontainer";
-import { ApiGateway } from "../misc/ApiGateway";
-import { Button } from "../components/blog/Button";
+import { Card } from "../../components/blog/Card";
+import CardContainer from "../../components/blog/Cardcontainer";
+import { ApiGateway } from "../../../lib/ApiGateway";
+import { Button } from "../../components/blog/Button";
 import { type } from "os";
 
 type Blog = {
