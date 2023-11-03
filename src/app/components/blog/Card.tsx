@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { CardImage } from "./CardImage";
 import { Title } from "./Title";
@@ -8,9 +8,11 @@ import { Button } from "./Button";
 export const Card = ({
   id,
   title,
+  publishedOn,
   content: text,
 }: {
   id: number;
+  publishedOn: Date;
   title: string;
   content: string;
 }) => {
@@ -19,9 +21,10 @@ export const Card = ({
       className="border border-white rounded-md mb-4 p-4 space-y-4" // Utilize Tailwind classes
       style={{ minHeight: "250px" }}
     >
-      
-      {/* <CardImage imagePath={imagePath}></CardImage>
-      <a className="gp-1 text-sm">Published on: {publishedOn}</a> */}
+      {/* <CardImage imagePath={imagePath}></CardImage> */}
+      <a className="gp-1 text-sm">
+        Published on: {publishedOn.toString().split("T")[0]}
+      </a>
 
       <Title>{title}</Title>
 

@@ -1,14 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import { BlogModal } from "./ViewPostModal"; // Import your ViewPostModal component
-import { CreatePostModal } from "./CreatePostModal"; // Import your CreatePostModal component
+import { BlogModal } from "./ViewPostModal"; 
+import { CreatePostModal } from "./CreatePostModal";
 import { ApiGateway } from "@/app/misc/ApiGateway";
 import { Modal } from "./Modal";
 import { DeletePostModal } from "./DeletePostModal";
 
 interface ButtonProps {
   text: string;
-  id?: number; // Make the 'id' parameter optional by adding a question mark.
+  id?: number; 
 }
 
 export const Button = ({ id, text }: ButtonProps) => {
