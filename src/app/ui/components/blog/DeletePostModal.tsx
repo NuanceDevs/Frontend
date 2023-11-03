@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "./Button";
-import { ApiGateway } from "@/app/misc/ApiGateway";
+import { ApiGateway } from "@/app/lib/ApiGateway";
 
 type DeletePostModalProps = {
   id?: number;
