@@ -22,7 +22,9 @@ export const Card = ({
       style={{ minHeight: "250px" }}
     >
       {/* <CardImage imagePath={imagePath}></CardImage> */}
-      <a className="gp-1 text-sm">Published on:</a>
+      <a className="gp-1 text-sm">
+        Published on: {publishedOn.toString().split("T")[0]}
+      </a>
 
       <Title>{title}</Title>
 
