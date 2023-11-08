@@ -3,14 +3,18 @@ import Logo from "./components/Logo/logo";
 import NavbarHome from "./components/navbar/navbar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Navbar from "./ui/components/navbar";
+import Description from "./ui/components/description";
+import { Session } from "inspector";
+import UserCard  from "./ui/components/UserCard";
 import Searchbar from "./components/searchbar/searchbar";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Portfolio", href: "/projects" },
-  { name: "Blog", href: "/blog" },
-  { name: "About", href: "/about" },
-  { name: "Login", href: "/contact" },
+  { name: "Portfolio", href: "/ui/pages/projects" },
+  { name: "Blog", href: "/ui/pages/blog" },
+  { name: "About", href: "/ui/pages/about" },
+  { name: "Login", href: "/api/auth/signin" },
 ];
 const inter = Inter({ subsets: ["latin"] });
 

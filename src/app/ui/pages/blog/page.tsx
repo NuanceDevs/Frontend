@@ -1,30 +1,24 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Card } from "../components/blog/Card";
-import CardContainer from "../components/blog/Cardcontainer";
-import { ApiGateway } from "../misc/ApiGateway";
-import { Button } from "../components/blog/Button";
+import { Card } from "../../components/blog/Card";
+import CardContainer from "../../components/blog/Cardcontainer";
+import { ApiGateway } from "../../../lib/ApiGateway";
+import { Button } from "../../components/blog/Button";
+import { type } from "os";
 
-interface Blog {
+type Blog = {
   id: number;
   title: string;
-  summary: string;
-}
+  publishedOn: Date;
+  content: string;
+};
 
 const BlogPage: React.FC = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]); // Specify the type for blogs
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleBlogClick = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const [blogs, setBlogs] = useState<Blog[]>([]);
 
   useEffect(() => {
-    const endpoint = "blog/getAll"; // Replace with your specific endpoint
+    const endpoint = "blog/getAll";
+    console.log(process.env.NEXT_PUBLIC_GATEWAY_IP);
     ApiGateway.fetchData(endpoint)
       .then((data) => {
         setBlogs(data);
@@ -36,16 +30,17 @@ const BlogPage: React.FC = () => {
 
   return (
     <>
-      <div className="w-1/3">
+      <div className="w-1/3 border-2">
         <Button text={"Add post"}></Button>
       </div>
       <CardContainer>
         {blogs.map((blog: Blog) => (
           <Card
             key={blog.id}
+            publishedOn={blog.publishedOn}
             title={blog.title}
             id={blog.id}
-            summary={blog.summary}
+            content={blog.content}
           />
         ))}
       </CardContainer>

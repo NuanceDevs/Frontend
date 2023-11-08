@@ -1,39 +1,29 @@
+"use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { Title } from "./Title";
 
-interface CreatePostModalProps {
-  onClose: () => void;
+type CreatePostModalProps = {
   onCreate: (title: string, content: string) => void; // Add a callback to handle post creation
-}
+  onCancel: () => void;
+};
 
 export const CreatePostModal: React.FC<CreatePostModalProps> = ({
-  onClose,
   onCreate,
+  onCancel,
 }) => {
   const [title, setTitle] = useState(""); // State for the title input
   const [content, setContent] = useState(""); // State for the content input
 
-  const closeModal = () => {
-    onClose();
-  };
-
   const handleCreate = () => {
-    // Call the onCreate callback with the title and content
     onCreate(title, content);
-    closeModal(); // Close the modal after creating the post
   };
 
-  // Prevent the modal from closing when clicking inside it
   const stopPropagation = (e: React.MouseEvent) => {
     e.stopPropagation();
   };
 
   return (
-    <div
-      className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-70 z-50"
-      onClick={closeModal}
-    >
+    <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-70 z-50">
       <div
         className="bg-white p-4 rounded shadow-md text-black w-4/5"
         onClick={stopPropagation}
@@ -66,8 +56,8 @@ export const CreatePostModal: React.FC<CreatePostModalProps> = ({
         </button>
 
         <button
+          onClick={onCancel}
           className="mt-2 px-4 py-2 bg-gray-300 text-black rounded-md"
-          onClick={closeModal}
         >
           Cancel
         </button>
