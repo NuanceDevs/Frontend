@@ -36,7 +36,7 @@ const NavbarHome: React.FC<{ navigation: navbarProps[]}> = ({ navigation }) => {
   };
 
   return (
-    <nav className="sticky bg-black  dark:bg-black w-full h-12 z-20 top-0 left-0 border-b border-black dark:border-gray-900 align items-center">
+    <nav className="sticky bg-black  dark:bg-black w-full h-24 z-20 top-0 left-0 border-b border-black dark:border-gray-900 align items-center">
       <ul className="flex items-center justify-between p-4 md:p-0 mt-4 font-medium border border-black bg-black md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-black dark:bg- md:dark:bg-black dark:bg-gray-800">
         <div className="flex items-center"> {/* This div contains the left-aligned links */}
           {navigation.map((item) => (

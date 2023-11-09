@@ -41,16 +41,29 @@ export const options: NextAuthOptions = {
                     placeholder: "Enter your password"
                 }
             },
-            async authorize(credentials: Record<"username" | "password", string> | undefined){
-                //User hier ophalen vanuit database en credential check doen 
-                const user = {id: "44", name: 'Martijn', password: 'Martijn123', role: 'admin'}
+            async authorize(credentials: Record<"username" | "password", string> | undefined) {
+                try {
+                    const endpoint = 'user/authenticate';
 
-                if (credentials?.username === user.name && credentials?.password === user.password){
-                    return user
-                } else {
-                    return null
+                    if (!credentials) {
+                        console.error('No credentials provided');
+                        return null;
+                    }
+
+                    const response = await ApiGateway.postData(JSON.stringify(credentials), endpoint);
+
+                    if (response.ok) {
+                        const user = await response.json();
+                        return user;
+                    } else {
+                        console.error('Authentication failed:', response.statusText);
+                        return null;
+                    }
+                } catch (error) {
+                    console.error('Error during authentication:', error);
+                    return null;
                 }
-            }
+              }
         })
     ],
     callbacks: {

@@ -8,6 +8,7 @@ import Link from "next/link";
 
 const navigation = [
   { name: "home", href: "/" },
+  { name: "user", href: "/ui/pages/user" },
   { name: "portfolio", href: "/ui/pages/projects" },
   { name: "blog", href: '/ui/pages/blog' },
   { name: "about", href: "/ui/pages/about" },
@@ -26,11 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <div className="sticky">
-        <NavbarHome navigation={navigation} />
-      </div>
-      
+        
       <body>
+      <NavbarHome navigation={navigation} />
         {children}
       </body>
     </html>
