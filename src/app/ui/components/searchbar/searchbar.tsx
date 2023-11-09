@@ -1,14 +1,14 @@
 import React from 'react'
 
-function searchbar() {
+function SearchBar() {
   return (
     <div>
-        <div className="items-start rounded h-full w-full text-black bg-white border-black ">
-          <input type="text" placeholder="Search Google" />
+        <div className="items-start rounded-full h-full w-full text-black bg-white border-black overflow-hidden">
+          <input type="text" placeholder="Search Google" className="w-full h-full px-4 py-2 outline-none" />
         </div>
     </div>
   )
 }
 
-export default searchbar
+export default SearchBar;
 

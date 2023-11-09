@@ -11,7 +11,6 @@ const navigation = [
   { name: "Portfolio", href: "/ui/pages/projects" },
   { name: "Blog", href: '/ui/pages/blog' },
   { name: "About", href: "/ui/pages/about" },
-  { name: "Login", href: "/ui/api/auth/signin" },
 ];
 const inter = Inter({ subsets: ["latin"] });
 
