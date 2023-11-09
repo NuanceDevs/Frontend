@@ -3,6 +3,14 @@ import GithubProvider from "next-auth/providers/github";
 import Credentials, { CredentialsProvider } from "next-auth/providers/credentials";
 import { GithubProfile } from "next-auth/providers/github";
 import { redirect } from "next/dist/server/api-utils";
+import { ApiGateway } from "@/app/lib/ApiGateway";
+
+type User = {
+    id: string;
+    name: string;
+    password: string;
+    role: string;
+  };
 
 export const options: NextAuthOptions = {
     providers:[

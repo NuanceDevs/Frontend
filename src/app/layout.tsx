@@ -7,10 +7,10 @@ import Searchbar from "./ui/components/searchbar/searchbar";
 import Link from "next/link";
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Portfolio", href: "/ui/pages/projects" },
-  { name: "Blog", href: '/ui/pages/blog' },
-  { name: "About", href: "/ui/pages/about" },
+  { name: "home", href: "/" },
+  { name: "portfolio", href: "/ui/pages/projects" },
+  { name: "blog", href: '/ui/pages/blog' },
+  { name: "about", href: "/ui/pages/about" },
 ];
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,8 +26,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <div className="sticky">
+        <NavbarHome navigation={navigation} />
+      </div>
+      
       <body>
-        <NavbarHome navigation={navigation}/>
         {children}
       </body>
     </html>
