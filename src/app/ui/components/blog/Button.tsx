@@ -1,15 +1,17 @@
 "use client";
 import React, { useState } from "react";
-import { BlogModal } from "./ViewPostModal"; 
+import { BlogModal } from "./ViewPostModal";
 import { CreatePostModal } from "./CreatePostModal";
 import { ApiGateway } from "@/app/lib/ApiGateway";
 import { Modal } from "./Modal";
 import { DeletePostModal } from "./DeletePostModal";
+//import { log4TSProvider } from "../../../lib/Logger";
 
-interface ButtonProps {
+type ButtonProps = {
   text: string;
-  id?: number; 
-}
+  id?: number;
+};
+//const logger = log4TSProvider.getLogger("blogButtonLogger");
 
 export const Button = ({ id, text }: ButtonProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,12 +37,10 @@ export const Button = ({ id, text }: ButtonProps) => {
 
   const handleDelete = (id: number) => {
     ApiGateway.deleteData("blog/delete", { id });
-    console.log(`Deleted ${id}`);
     closeModal();
   };
 
   const handleCreate = (title: string, content: string) => {
-    console.log("handleCreate");
     const summary: string = "test";
     ApiGateway.postData("blog/create", { title, summary, content });
     closeModal();

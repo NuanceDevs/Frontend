@@ -1,16 +1,28 @@
+import { log4TSProvider } from "./Logger";
+
 export class ApiGateway {
-  // Define the base URL for your API
+  // Initialize the logger inside the class, not as an instance property
+  private static logger = log4TSProvider.getLogger("ApiGateway");
   static baseUrl: string;
+
+  constructor() {
+    if (!ApiGateway.baseUrl) {
+      ApiGateway.initializeBaseUrl();
+    }
+  }
 
   static initializeBaseUrl() {
     const gatewayIp = process.env.NEXT_PUBLIC_GATEWAY_IP;
     const gatewayPort = process.env.NEXT_PUBLIC_GATEWAY_PORT;
-
-    console.log(gatewayIp);
-    console.log(gatewayPort);
+    this.logger.debug(`GATEWAY_IP: ${gatewayIp}, GATEWAY_PORT: ${gatewayPort}`);
 
     if (!gatewayIp || !gatewayPort) {
-      throw new Error("GATEWAY_IP or GATEWAY_PORT not defined in .env");
+      const error = Error();
+      this.logger.error(
+        "GATEWAY_IP or GATEWAY_PORT not defined in environment variable",
+        error
+      );
+      throw error;
     }
 
     ApiGateway.baseUrl = `http://${gatewayIp}:${gatewayPort}/api/`;
@@ -18,15 +30,17 @@ export class ApiGateway {
 
   // Static function to make API calls
   static async fetchData(endpoint: string) {
-    if (!ApiGateway.baseUrl) {
-      ApiGateway.initializeBaseUrl();
-    }
+    ApiGateway.logger.debug(
+      `Fetching data from ${ApiGateway.baseUrl}${endpoint}`
+    );
 
     const apiUrl = `${ApiGateway.baseUrl}${endpoint}`;
 
     const response = await fetch(apiUrl);
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      const errorMessage = `HTTP error! Status: ${response.status}`;
+      this.logger.error(errorMessage);
+      throw new Error(errorMessage);
     }
 
     const data = await response.json();
@@ -34,10 +48,6 @@ export class ApiGateway {
   }
 
   static async postData(endpoint: string, data: any) {
-    if (!ApiGateway.baseUrl) {
-      ApiGateway.initializeBaseUrl();
-    }
-
     const apiUrl = `${ApiGateway.baseUrl}${endpoint}`;
 
     const response = await fetch(apiUrl, {
@@ -57,14 +67,6 @@ export class ApiGateway {
   }
 
   static async deleteData(endpoint: string, data: any) {
-    if (!ApiGateway.baseUrl) {
-      ApiGateway.initializeBaseUrl();
-    }
-
-    console.log(endpoint);
-    console.log(data);
-    console.log(JSON.stringify(data));
-
     const apiUrl = `${ApiGateway.baseUrl}${endpoint}`;
 
     const response = await fetch(apiUrl, {
@@ -76,7 +78,9 @@ export class ApiGateway {
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      const errorMessage = `HTTP error! Status: ${response.status}`;
+      this.logger.error(errorMessage);
+      throw new Error(errorMessage);
     }
 
     const responseData = await response.json();

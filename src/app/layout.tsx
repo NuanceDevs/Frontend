@@ -2,10 +2,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "./ui/components/navbar";
-import Description from "./ui/components/description";
-import { Session } from "inspector";
-import UserCard  from "./ui/components/UserCard";
+import { log4TSProvider } from "./lib/Logger";
 
+const logger = log4TSProvider.getLogger("layoutLogger");
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Portfolio", href: "/ui/pages/projects" },

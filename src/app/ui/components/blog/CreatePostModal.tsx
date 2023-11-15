@@ -1,11 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import { Title } from "./Title";
+//import { log4TSProvider } from "../../../lib/Logger";
+import { log } from "console";
 
 type CreatePostModalProps = {
   onCreate: (title: string, content: string) => void; // Add a callback to handle post creation
   onCancel: () => void;
 };
+//const logger = log4TSProvider.getLogger("CreatePostModal");
 
 export const CreatePostModal: React.FC<CreatePostModalProps> = ({
   onCreate,
@@ -16,6 +19,9 @@ export const CreatePostModal: React.FC<CreatePostModalProps> = ({
 
   const handleCreate = () => {
     onCreate(title, content);
+    // logger.debug(
+    //   `Handle create has been clicked with ${title} and ${content}}`
+    // );
   };
 
   const stopPropagation = (e: React.MouseEvent) => {
