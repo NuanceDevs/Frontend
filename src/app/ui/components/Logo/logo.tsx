@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../../../../public/nuancelogoresized.png";
+import logo from "@../../../public/nuancelogoresized.png";
 
 function Logo() {
   return (
