@@ -13,7 +13,7 @@ export class ApiGateway {
       throw new Error("GATEWAY_IP or GATEWAY_PORT not defined in .env");
     }
 
-    ApiGateway.baseUrl = `http://${gatewayIp}:${gatewayPort}/api/`;
+    ApiGateway.baseUrl = `http://${gatewayIp}:${gatewayPort}/api2/`;
   }
 
   // Static function to make API calls
