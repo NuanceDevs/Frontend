@@ -11,6 +11,7 @@ type Blog = {
   title: string;
   publishedOn: Date;
   content: string;
+  imageUrl: string;
 };
 
 const BlogPage: React.FC = () => {
@@ -41,6 +42,7 @@ const BlogPage: React.FC = () => {
             title={blog.title}
             id={blog.id}
             content={blog.content}
+            imageUrl={blog.imageUrl}
           />
         ))}
       </CardContainer>
