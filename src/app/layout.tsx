@@ -1,17 +1,17 @@
 import "./globals.css";
+import Logo from "./ui/components/Logo/logo";
+import NavbarHome from "./ui/components/navbar/navbar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "./ui/components/navbar";
-import Description from "./ui/components/description";
-import { Session } from "inspector";
-import UserCard  from "./ui/components/UserCard";
+import Searchbar from "./ui/components/searchbar/searchbar";
+import Link from "next/link";
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Portfolio", href: "/ui/pages/projects" },
-  { name: "Blog", href: "/ui/pages/blog" },
-  { name: "About", href: "/ui/pages/about" },
-  { name: "Login", href: "/api/auth/signin" },
+  { name: "home", href: "/" },
+  { name: "user", href: "/ui/pages/user" },
+  { name: "portfolio", href: "/ui/pages/projects" },
+  { name: "blog", href: '/ui/pages/blog' },
+  { name: "about", href: "/ui/pages/about" },
 ];
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,8 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+        
       <body>
-        <Navbar navigation={navigation} />
+      <NavbarHome navigation={navigation} />
         {children}
       </body>
     </html>

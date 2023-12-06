@@ -30,7 +30,7 @@ const BlogPage: React.FC = () => {
 
   return (
     <>
-      <div className="w-1/3 border-2">
+      <div className="w-1/3 border-2 rounded-full">
         <Button text={"Add post"}></Button>
       </div>
       <CardContainer>
