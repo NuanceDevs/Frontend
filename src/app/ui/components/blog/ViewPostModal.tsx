@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Title } from "./Title";
-import { ApiGateway } from "@/app/misc/ApiGateway";
+import { ApiGateway } from "@/app/lib/ApiGateway";
 import { Button } from "./Button";
 
 type BlogModalProps = {

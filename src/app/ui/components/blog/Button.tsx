@@ -1,14 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import { BlogModal } from "./ViewPostModal"; 
+import { BlogModal } from "./ViewPostModal";
 import { CreatePostModal } from "./CreatePostModal";
-import { ApiGateway } from "@/app/misc/ApiGateway";
+import { ApiGateway } from "@/app/lib/ApiGateway";
 import { Modal } from "./Modal";
 import { DeletePostModal } from "./DeletePostModal";
 
 interface ButtonProps {
   text: string;
-  id?: number; 
+  id?: number;
 }
 
 export const Button = ({ id, text }: ButtonProps) => {
@@ -39,10 +39,10 @@ export const Button = ({ id, text }: ButtonProps) => {
     closeModal();
   };
 
-  const handleCreate = (title: string, content: string) => {
+  const handleCreate = (title: string, content: string, imageUrl: string) => {
     console.log("handleCreate");
     const summary: string = "test";
-    ApiGateway.postData("blog/create", { title, summary, content });
+    ApiGateway.postData("blog/create", { title, summary, content, imageUrl });
     closeModal();
   };
 
@@ -54,7 +54,9 @@ export const Button = ({ id, text }: ButtonProps) => {
     case "Add post":
       modalContent = (
         <CreatePostModal
-          onCreate={(title, content) => handleCreate(title, content)}
+          onCreate={(title, content, imageUrl) =>
+            handleCreate(title, content, imageUrl)
+          }
           onCancel={closeModal}
         ></CreatePostModal>
       );

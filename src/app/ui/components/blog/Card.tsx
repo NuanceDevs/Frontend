@@ -10,11 +10,13 @@ export const Card = ({
   title,
   publishedOn,
   content: text,
+  imageUrl,
 }: {
   id: number;
   publishedOn: Date;
   title: string;
   content: string;
+  imageUrl: string;
 }) => {
   return (
     <div
@@ -27,6 +29,7 @@ export const Card = ({
       </a>
 
       <Title>{title}</Title>
+      <CardImage imagePath={imageUrl}></CardImage>
 
       <Summary>{text}</Summary>
       <Button id={id} text={"Read more"}></Button>
